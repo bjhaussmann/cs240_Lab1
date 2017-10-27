@@ -18,7 +18,7 @@ public class Main {
 		int[] array;
 		Initialize arr = null;
 		array = arr.init();
-
+		
 		SelectiveSort select = new SelectiveSort();
 		array = select.iterativeSort(array);
 		array = select.recursiveSort(array);
@@ -42,5 +42,6 @@ public class Main {
 		RadixSort radix = new RadixSort();
 		array = radix.iterativeSort(array);
 		array = radix.recursiveSort(array);
+		
 	}
 }

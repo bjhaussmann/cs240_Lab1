@@ -17,7 +17,7 @@ public class Initialize {
 	public Initialize() {
 		this(length);
 	}
-
+	
 	public Initialize(int length) {
 		array = new int[length];
 	}
@@ -34,5 +34,6 @@ public class Initialize {
 			array[i] = rnd.nextInt(1000);
 		}
 		return array;
+		
 	}
 }
