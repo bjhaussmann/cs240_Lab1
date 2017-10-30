@@ -31,17 +31,6 @@ public class ShellSort {
 	}
 
 	/**
-	 * Recursively implements shell sort with a step of 2.
-	 * 
-	 * @param array
-	 *            Array to be sorted.
-	 * @return array Sorted array.
-	 */
-	public int[] recursiveSort(int[] array) {
-		return recursiveSort(array, 2, 2);
-	}
-
-	/**
 	 * Recursively implements shell sort with a specified step.
 	 * 
 	 * @param array
@@ -50,11 +39,29 @@ public class ShellSort {
 	 *            Steps to sort array by.
 	 * @return array The sorted array.
 	 */
-	public int[] recursiveSort(int[] array, int step) {
-		if (step < 1) {
-			step = 2;
-		}
+	public int[] recursiveSort(int[] array) {
+		int step = hubbardSequence(array.length);
 		return recursiveSort(array, step, step);
+	}
+
+	/**
+	 * Finds the correct step for shell sort based on the Hubbard Sequence.
+	 * 
+	 * @param length
+	 *            Length of the array to be sorted.
+	 * @return previous Correct step to use for shell sort based on the Hubbard
+	 *         Sequence.
+	 */
+	public int hubbardSequence(int length) {
+		int step = 1;
+		int previous = 1;
+
+		while (step < (length / 2)) {
+			previous = step;
+			step = (2 * previous) + 1;
+		}
+
+		return previous;
 	}
 
 	/**
@@ -71,6 +78,7 @@ public class ShellSort {
 	 */
 	private int[] recursiveSort(int[] array, int currentStep, int stepper) {
 		int step = array.length / currentStep;
+		
 		if (step >= 1) {
 			for (int i = step; i < array.length; i++) {
 				int temp = array[i];
