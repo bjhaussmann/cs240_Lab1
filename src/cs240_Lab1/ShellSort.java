@@ -17,6 +17,9 @@ public class ShellSort {
 	 * @return array Sorted array.
 	 */
 	public int[] iterativeSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		for (int i = array.length / 2; i > 0; i /= 2) {
 			for (int j = i; j < array.length; j++) {
 				int temp = array[j];
@@ -28,6 +31,7 @@ public class ShellSort {
 			}
 		}
 		return array;
+		
 	}
 
 	/**
@@ -38,8 +42,12 @@ public class ShellSort {
 	 * @param step
 	 *            Steps to sort array by.
 	 * @return array The sorted array.
+
 	 */
 	public int[] recursiveSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		int step = hubbardSequence(array.length);
 		return recursiveSort(array, step, step);
 	}
@@ -90,7 +98,6 @@ public class ShellSort {
 			}
 			recursiveSort(array, currentStep * stepper, stepper);
 		}
-
 		return array;
 	}
 }

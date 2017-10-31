@@ -17,18 +17,52 @@ public class MergeSort {
 	 * @return array Sorted array.
 	 */
 	public int[] iterativeSort(int[] array) {
-		int temp = 0;
-		for (int i =0; i < array.length; i+=2)
-		{
-			if(array[i] > array[i+1])
-			{
-				temp = array[i];
-				array[i] = array[i+1];
-				array[i+1] = temp;
+
+		if (array == null) {
+			return array;
+		}
+
+		for (int i = array.length; i > 0; i /= 2) {
+			int mid = array.length / 2;
+
+			int[] left = new int[mid];
+			for (int j = 0; j < mid; j++) {
+				left[j] = array[j];
+			}
+
+			int[] right = new int[array.length - mid];
+			for (int j = mid; j < array.length; j++) {
+				right[j - mid] = array[j];
+			}
+
+			int j = 0;
+			int k = 0;
+			int l = 0;
+
+			while (j < left.length && k < right.length) {
+				if (left[j] < right[k]) {
+					array[l] = left[j];
+					j++;
+				} else {
+					array[l] = right[k];
+					k++;
+				}
+				l++;
+			}
+
+			while (j < left.length) {
+				array[l] = left[j];
+				j++;
+				l++;
+			}
+
+			while (k < right.length) {
+				array[l] = right[k];
+				k++;
+				l++;
 			}
 		}
 		return array;
-		
 	}
 
 	/**
@@ -38,7 +72,11 @@ public class MergeSort {
 	 *            Array to be sorted.
 	 * @return array Sorted array.
 	 */
+
 	public int[] recursiveSort(int[] array) {
+	if (array == null) {
+		return array;
+	}
 		return recursiveSort(array, 0, array.length - 1);
 	}
 
@@ -61,7 +99,6 @@ public class MergeSort {
 			recursiveSort(array, (mid + 1), right);
 			merge(array, left, mid, right);
 		}
-
 		return array;
 	}
 

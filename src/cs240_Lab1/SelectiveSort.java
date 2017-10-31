@@ -17,6 +17,9 @@ public class SelectiveSort {
 	 * @return array Sorted array.
 	 */
 	public int[] iterativeSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		int temp = 0;
 		int min = 0;
 
@@ -42,6 +45,9 @@ public class SelectiveSort {
 	 * @return array Sorted array
 	 */
 	public int[] recursiveSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		return recursiveSort(array, 0);
 	}
 
@@ -56,6 +62,9 @@ public class SelectiveSort {
 	 * @return array Sorted array
 	 */
 	public int[] recursiveSort(int[] array, int index) {
+		if (array == null) {
+			return array;
+		}
 		int temp = 0;
 		int min = index;
 

@@ -17,6 +17,9 @@ public class InsertionSort {
 	 * @return Array sorted array
 	 */
 	public int[] iterativeSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		for (int i = 1; i < array.length; i++) {
 			int key = array[i];
 			int j = i - 1;
@@ -27,6 +30,7 @@ public class InsertionSort {
 			array[j + 1] = key;
 		}
 		return array;
+		
 	}
 
 	/**
@@ -37,6 +41,9 @@ public class InsertionSort {
 	 * @return array Sorted array.
 	 */
 	public int[] recursiveSort(int[] array) {
+		if (array == null) {
+			return array;
+		}
 		return recursiveSort(array, array.length);
 	}
 
