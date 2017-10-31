@@ -28,6 +28,7 @@ public class MergeSort {
 			}
 		}
 		return array;
+		
 	}
 
 	/**
