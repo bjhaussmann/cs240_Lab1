@@ -20,16 +20,21 @@ public class ShellSort {
 		if (array == null) {
 			return array;
 		}
+		int countMove = 0;
+		int countCompare = 0;
 		for (int i = array.length / 2; i > 0; i /= 2) {
 			for (int j = i; j < array.length; j++) {
 				int temp = array[j];
 				int k;
-				for (k = j; k >= array.length && array[k - array.length] > temp; k -= array.length) {
-					array[k] = array[k - array.length];
+				countCompare++;
+				for (k = j; k >= i && array[k - i] > temp; k -= i) {
+					array[k] = array[k - i];
+					countMove++;
 				}
 				array[k] = temp;
 			}
 		}
+		System.out.println("Moves:\t" + countMove + "\nCompares:\t" + countCompare);
 		return array;
 		
 	}

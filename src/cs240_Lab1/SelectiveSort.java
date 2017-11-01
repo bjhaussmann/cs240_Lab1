@@ -22,18 +22,23 @@ public class SelectiveSort {
 		}
 		int temp = 0;
 		int min = 0;
+		int countMove = 0;
+		int countCompare = 0;
 
 		for (int i = 0; i < array.length - 1; i++) {
 			min = i;
 			for (int j = i + 1; j < array.length; j++) {
+				countCompare++;
 				if (array[j] < array[min]) {
 					min = j;
+					countMove++;
 				}
 			}
 			temp = array[min];
 			array[min] = array[i];
 			array[i] = temp;
 		}
+		System.out.println("Moves:\t" + countMove + "\nCompares:\t" + countCompare);
 		return array;
 	}
 

@@ -20,15 +20,21 @@ public class InsertionSort {
 		if (array == null) {
 			return array;
 		}
+		int countMove = 0;
+		int countCompare = 0;
+		
 		for (int i = 1; i < array.length; i++) {
 			int key = array[i];
 			int j = i - 1;
+			countMove++;
 			while (j >= 0 && array[j] > key) {
 				array[j + 1] = array[j];
 				j = j - 1;
+				countCompare++;
 			}
 			array[j + 1] = key;
 		}
+		System.out.println("Moves:\t" + countMove + "\nCompares:\t" + countCompare);
 		return array;
 		
 	}

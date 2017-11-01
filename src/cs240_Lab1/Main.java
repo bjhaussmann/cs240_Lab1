@@ -16,20 +16,20 @@ public class Main {
 	public static void main(String[] args) {
 
 		int[] array;
-		Initialize arr = null;
+		Initialize arr = new Initialize(1000);
 		array = arr.init();
 		
-		SelectiveSort select = new SelectiveSort();
+		/*SelectiveSort select = new SelectiveSort();
 		array = select.iterativeSort(array);
 		array = select.recursiveSort(array);
 
 		InsertionSort insert = new InsertionSort();
 		array = insert.iterativeSort(array);
 		array = insert.recursiveSort(array);
-
+*/
 		ShellSort shell = new ShellSort();
 		array = shell.iterativeSort(array);
-		array = shell.recursiveSort(array);
+		/*array = shell.recursiveSort(array);
 
 		MergeSort merge = new MergeSort();
 		array = merge.iterativeSort(array);
@@ -41,7 +41,7 @@ public class Main {
 
 		RadixSort radix = new RadixSort();
 		array = radix.iterativeSort(array);
-		array = radix.recursiveSort(array);
+		array = radix.recursiveSort(array);*/
 		
 	}
 }

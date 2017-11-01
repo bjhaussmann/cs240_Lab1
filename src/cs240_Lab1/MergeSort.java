@@ -21,7 +21,9 @@ public class MergeSort {
 		if (array == null) {
 			return array;
 		}
-
+		int countMove = 0;
+		int countCompare = 0;
+		
 		for (int i = array.length; i > 0; i /= 2) {
 			int mid = array.length / 2;
 
@@ -40,9 +42,11 @@ public class MergeSort {
 			int l = 0;
 
 			while (j < left.length && k < right.length) {
+				countCompare++;
 				if (left[j] < right[k]) {
 					array[l] = left[j];
 					j++;
+					countMove++;
 				} else {
 					array[l] = right[k];
 					k++;
@@ -62,6 +66,7 @@ public class MergeSort {
 				l++;
 			}
 		}
+		System.out.println("Moves:\t" + countMove + "\nCompares:\t" + countCompare);
 		return array;
 	}
 
